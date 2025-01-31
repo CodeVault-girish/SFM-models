@@ -5,6 +5,7 @@ from .xvector_extractor import XvectorExtractor
 from .hubert_extractor import HubertExtractor
 from .wavlm_extractor import WavLMExtractor
 from .xlsr_extractor import XLSRExtractor
+from .wav2vec2_extractor import Wav2Vec2Extractor
 
 MODEL_REGISTRY = {
     "1": {
@@ -34,5 +35,9 @@ MODEL_REGISTRY = {
     "7": {
         "name": "Facebook Wav2Vec2-XLS-R-1B",
         "extractor_class": XLSRExtractor
+    },
+    "8": {
+        "name": "Facebook Wav2Vec2-base",
+        "extractor_class": Wav2Vec2Extractor
     }
 }
