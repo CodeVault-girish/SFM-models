@@ -22,6 +22,5 @@ pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --e
 echo "Installing additional requirements..."
 pip install -r requirements.txt
 
-# Go back to the project root.
 cd ..
 echo "LanguageBind installation complete."
