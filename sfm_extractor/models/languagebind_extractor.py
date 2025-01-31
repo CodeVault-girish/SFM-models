@@ -5,6 +5,7 @@ import logging
 import torch
 import pandas as pd
 from tqdm import tqdm
+import subprocess
 
 # Configure logging
 logging.basicConfig(
@@ -25,12 +26,25 @@ class LanguageBindExtractor:
     def initialize_languagebind(self, cache_dir):
         """
         Lazily import and initialize the LanguageBind model, tokenizer, and audio transformation.
+        If the 'languagebind' package is not installed, automatically run the installation bash script.
         """
         try:
             from languagebind import LanguageBind, to_device, transform_dict, LanguageBindAudioTokenizer
         except ImportError:
-            raise ImportError("The 'languagebind' package is not installed. Please run the installation script or install it manually.")
-        
+            logging.info("The 'languagebind' package is not installed. Running the installation script automatically...")
+            # Determine the path of the installation script relative to this file.
+            # __file__ is the path to this file. Go two levels up to get the package root, then into bash.
+            package_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            script_path = os.path.join(package_root, "bash", "install_languagebind.sh")
+            if not os.path.exists(script_path):
+                raise ImportError(f"Installation script not found at {script_path}.")
+            try:
+                subprocess.check_call(["bash", script_path])
+            except subprocess.CalledProcessError as e:
+                raise ImportError(f"Failed to automatically install 'languagebind': {e}")
+            # Try the import again
+            from languagebind import LanguageBind, to_device, transform_dict, LanguageBindAudioTokenizer
+
         clip_type = {
             'audio': 'LanguageBind_Audio_FT',  # Use 'LanguageBind_Audio' if not using the fine-tuned version.
         }
@@ -67,11 +81,11 @@ class LanguageBindExtractor:
             logging.error(f"Error transforming audio file {audio_path}: {e}")
             return None
 
-        # Lazy import for to_device
+        # Lazy import for to_device (should now be available)
         try:
             from languagebind import to_device
         except ImportError:
-            logging.error("The 'languagebind' package is not installed.")
+            logging.error("The 'languagebind' package is not installed even after installation.")
             return None
 
         audio_input = to_device(audio_input, self.device)
