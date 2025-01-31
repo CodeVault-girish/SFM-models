@@ -73,6 +73,7 @@
    git clone https://github.com/YourUsername/SFM-models.git
    cd SFM-models
    ```
+2. To use the model:
    ```
    from sfm_extractor import model_list, extract_from
    model_list()
