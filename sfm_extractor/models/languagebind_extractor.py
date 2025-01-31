@@ -6,7 +6,7 @@ import torch
 import pandas as pd
 from tqdm import tqdm
 
-# Note: We no longer import 'languagebind' at the module level.
+# Note: Lazy import of the languagebind package will be done when needed.
 
 # Configure logging
 logging.basicConfig(
@@ -34,7 +34,7 @@ class LanguageBindExtractor:
             raise ImportError("The 'languagebind' package is not installed. Please run the installation script or install it manually.")
         
         clip_type = {
-            'audio': 'LanguageBind_Audio_FT',  # Use 'LanguageBind_Audio' if not using the fine-tuned model.
+            'audio': 'LanguageBind_Audio_FT',  # Use 'LanguageBind_Audio' if not using the fine-tuned version.
         }
 
         logging.info("Loading LanguageBind model...")
@@ -69,7 +69,7 @@ class LanguageBindExtractor:
             logging.error(f"Error transforming audio file {audio_path}: {e}")
             return None
 
-        # Import to_device here (lazy import)
+        # Lazy import for to_device
         try:
             from languagebind import to_device
         except ImportError:

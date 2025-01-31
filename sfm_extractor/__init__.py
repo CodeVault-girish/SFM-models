@@ -1,8 +1,5 @@
 # sfm_extractor/__init__.py
 
-from .extractor import sfm_lists, extract_from
+from .extractor import model_list, extract_from
 
-__all__ = ['sfm_lists', 'extract_from']
-
-print("SFM Lists:")
-sfm_lists()
+__all__ = ['model_list', 'extract_from']

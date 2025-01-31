@@ -5,7 +5,7 @@ import subprocess
 import sys
 from .models import MODEL_REGISTRY
 
-def sfm_lists():
+def model_list():
     """
     Print the available SFM models.
     """
@@ -13,20 +13,23 @@ def sfm_lists():
     for key, info in MODEL_REGISTRY.items():
         print(f"{key}. {info['name']}")
 
-def extract_from(selection):
+def extract_from(selection, folder_path, output_file=None, device='cpu'):
     """
-    Launch extraction for the selected model.
+    Launch extraction for the selected model using provided parameters.
     
     This function:
       1. Runs the associated bash installation script.
-      2. Prompts for the audio folder path and output CSV file.
+      2. Uses the provided folder path, output file, and device.
       3. Instantiates the extractor and processes the folder.
     
     :param selection: The key (as a string) of the selected model from MODEL_REGISTRY.
+    :param folder_path: The full path to the folder containing audio files.
+    :param output_file: The output CSV file path. If None, the user will be prompted.
+    :param device: The device to use ('cpu' or 'cuda').
     """
     if selection not in MODEL_REGISTRY:
         print(f"Invalid selection '{selection}'. Available selections are:")
-        sfm_lists()
+        model_list()
         return
 
     model_info = MODEL_REGISTRY[selection]
@@ -44,17 +47,20 @@ def extract_from(selection):
     else:
         print("No installation script specified for this model.")
 
-    folder_path = input("Enter the full path to the folder containing audio files: ").strip()
+    # Validate folder path
     if not os.path.isdir(folder_path):
         print("Invalid folder path. Exiting.")
         return
 
-    output_file = input("Enter the output CSV file path (e.g., output.csv): ").strip()
+    # If output_file was not provided, prompt the user
     if not output_file:
-        print("No output file provided. Exiting.")
-        return
+        output_file = input("Enter the output CSV file path (e.g., output.csv): ").strip()
+        if not output_file:
+            print("No output file provided. Exiting.")
+            return
 
-    device = input("Enter device to use (cpu or cuda): ").strip().lower()
+    # Validate device
+    device = device.lower()
     if device not in ['cpu', 'cuda']:
         print("Invalid device selected, defaulting to cpu.")
         device = 'cpu'
