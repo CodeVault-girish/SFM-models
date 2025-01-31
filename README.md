@@ -1,10 +1,10 @@
 # SFM-models
 
-**SFM-models** is a Python library that provides a **unified interface** for extracting audio features from multiple state-of-the-art models. By employing **lazy loading**, SFM-models dynamically imports only the model selected by the user, reducing unnecessary overhead. Whether you work locally or in a cloud notebook environment like Kaggle, this repository streamlines the workflow for audio embedding extraction, saving results in a convenient CSV format.
+<!-- **SFM-models** is a Python library that provides a **unified interface** for extracting audio features from multiple state-of-the-art models. By employing **lazy loading**, SFM-models dynamically imports only the model selected by the user, reducing unnecessary overhead. Whether you work locally or in a cloud notebook environment like Kaggle, this repository streamlines the workflow for audio embedding extraction, saving results in a convenient CSV format. -->
 
 ---
 
-## Table of Contents
+<!-- ## Table of Contents
 
 1. [Key Features](#key-features)  
 2. [Supported Models](#supported-models)  
@@ -19,9 +19,9 @@
 7. [Extending the Library](#extending-the-library)  
 8. [Contributing](#contributing)  
 9. [License](#license)  
-10. [Contact](#contact)
+10. [Contact](#contact) -->
 
----
+<!-- ---
 
 ## Key Features
 
@@ -36,7 +36,7 @@
 - **Local & Cloud Compatibility:**  
   Works seamlessly in local Python environments or Kaggle notebooks.
 
----
+--- -->
 
 ## Supported Models
 
@@ -50,10 +50,10 @@
 8. **Facebook Wav2Vec2-base** (Hugging Face Transformers)  
 9. **OpenAI Whisper-base** (Hugging Face Transformers)  
 10. **Microsoft UniSpeech-SAT-base-100h-Libri-ft** (Hugging Face Transformers)
+<!-- 
+> *You can easily add additional models by creating new extractor classes and updating the registry.* -->
 
-> *You can easily add additional models by creating new extractor classes and updating the registry.*
-
----
+<!-- ---
 
 ## Prerequisites
 
@@ -61,14 +61,22 @@
 - **Python 3.7+** to ensure compatibility with the included libraries.  
 - **pip** (or `conda`) for package installation.
 
----
+--- -->
 
 ## Installation
 
 ### Cloning the Repository
 
-1. Install **Git** if you have not already ([Download Git](https://git-scm.com/downloads)).
-2. Clone the repository:
+<!-- 1. Install **Git** if you have not already ([Download Git](https://git-scm.com/downloads)). -->
+1. Clone the repository:
    ```bash
    git clone https://github.com/YourUsername/SFM-models.git
    cd SFM-models
+   ```
+   from sfm_extractor import model_list, extract_from
+   model_list()
+   ```
+   extract_from("3", "/kaggle/input/your-audio-folder", output_file="output_model3.csv", device="cuda")
+
+
+
