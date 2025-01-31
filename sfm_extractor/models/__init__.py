@@ -1,10 +1,10 @@
-# sfm_extractor/models/__init__.py
-
 from .trillsson_extractor import TrillssonExtractor
 from .yamnet_extractor import YamnetExtractor
 from .mms_extractor import MMSExtractor
 from .xvector_extractor import XvectorExtractor
 from .hubert_extractor import HubertExtractor
+from .wavlm_extractor import WavLMExtractor
+from .xlsr_extractor import XLSRExtractor
 
 MODEL_REGISTRY = {
     "1": {
@@ -26,5 +26,13 @@ MODEL_REGISTRY = {
     "5": {
         "name": "Facebook HuBERT-base-ls960",
         "extractor_class": HubertExtractor
+    },
+    "6": {
+        "name": "Microsoft WavLM-base",
+        "extractor_class": WavLMExtractor
+    },
+    "7": {
+        "name": "Facebook Wav2Vec2-XLS-R-1B",
+        "extractor_class": XLSRExtractor
     }
 }
