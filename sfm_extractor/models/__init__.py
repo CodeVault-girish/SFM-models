@@ -1,26 +1,55 @@
 # sfm_extractor/models/__init__.py
 
-from .trillsson_extractor import TrillssonExtractor
-from .yamnet_extractor import YamnetExtractor
-from .mms_extractor import MMSExtractor
-from .xvector_extractor import XvectorExtractor
-from .hubert_extractor import HubertExtractor
-from .wavlm_extractor import WavLMExtractor
-from .xlsr_extractor import XLSRExtractor
-from .wav2vec2_extractor import Wav2Vec2Extractor
-from .whisper_extractor import WhisperExtractor
-from .unispeechsat_extractor import UniSpeechSATExtractor
-
 MODEL_REGISTRY = {
-    "1": {"name": "Trillsson", "extractor_class": TrillssonExtractor},
-    "2": {"name": "YAMNet", "extractor_class": YamnetExtractor},
-    "3": {"name": "Facebook MMS-1B", "extractor_class": MMSExtractor},
-    "4": {"name": "SpeechBrain x-vector", "extractor_class": XvectorExtractor},
-    "5": {"name": "Facebook HuBERT-base-ls960", "extractor_class": HubertExtractor},
-    "6": {"name": "Microsoft WavLM-base", "extractor_class": WavLMExtractor},
-    "7": {"name": "Facebook Wav2Vec2-XLS-R-1B", "extractor_class": XLSRExtractor},
-    "8": {"name": "Facebook Wav2Vec2-base", "extractor_class": Wav2Vec2Extractor},
-    "9": {"name": "OpenAI Whisper-base", "extractor_class": WhisperExtractor},
-    "10": {"name": "Microsoft UniSpeech-SAT-base-100h-Libri-ft", "extractor_class": UniSpeechSATExtractor},
-    "11": {"name": "Facebook Wav2Vec2-base (New)", "extractor_class": Wav2Vec2Extractor}  # Example if you need to add another entry
+    "1": {
+        "name": "Trillsson",
+        "module": "sfm_extractor.models.trillsson_extractor",
+        "class": "TrillssonExtractor"
+    },
+    "2": {
+        "name": "YAMNet",
+        "module": "sfm_extractor.models.yamnet_extractor",
+        "class": "YamnetExtractor"
+    },
+    "3": {
+        "name": "Facebook MMS-1B",
+        "module": "sfm_extractor.models.mms_extractor",
+        "class": "MMSExtractor"
+    },
+    "4": {
+        "name": "SpeechBrain x-vector",
+        "module": "sfm_extractor.models.xvector_extractor",
+        "class": "XvectorExtractor"
+    },
+    "5": {
+        "name": "Facebook HuBERT-base-ls960",
+        "module": "sfm_extractor.models.hubert_extractor",
+        "class": "HubertExtractor"
+    },
+    "6": {
+        "name": "Microsoft WavLM-base",
+        "module": "sfm_extractor.models.wavlm_extractor",
+        "class": "WavLMExtractor"
+    },
+    "7": {
+        "name": "Facebook Wav2Vec2-XLS-R-1B",
+        "module": "sfm_extractor.models.xlsr_extractor",
+        "class": "XLSRExtractor"
+    },
+    "8": {
+        "name": "Facebook Wav2Vec2-base",
+        "module": "sfm_extractor.models.wav2vec2_extractor",
+        "class": "Wav2Vec2Extractor"
+    },
+    "9": {
+        "name": "OpenAI Whisper-base",
+        "module": "sfm_extractor.models.whisper_extractor",
+        "class": "WhisperExtractor"
+    },
+    "10": {
+        "name": "Microsoft UniSpeech-SAT-base-100h-Libri-ft",
+        "module": "sfm_extractor.models.unispeechsat_extractor",
+        "class": "UniSpeechSATExtractor"
+    },
+    # You can add more models as needed.
 }
