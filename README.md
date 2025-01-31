@@ -73,10 +73,11 @@
    git clone https://github.com/YourUsername/SFM-models.git
    cd SFM-models
    ```
+   ```
    from sfm_extractor import model_list, extract_from
    model_list()
    ```
+   ```
    extract_from("3", "/kaggle/input/your-audio-folder", output_file="output_model3.csv", device="cuda")
-
-
+   ```
 
