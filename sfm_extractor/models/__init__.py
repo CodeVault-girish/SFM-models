@@ -7,6 +7,7 @@ from .wavlm_extractor import WavLMExtractor
 from .xlsr_extractor import XLSRExtractor
 from .wav2vec2_extractor import Wav2Vec2Extractor
 from .whisper_extractor import WhisperExtractor
+from .unispeechsat_extractor import UniSpeechSATExtractor
 
 MODEL_REGISTRY = {
     "1": {
@@ -44,5 +45,9 @@ MODEL_REGISTRY = {
     "9": {
         "name": "OpenAI Whisper-base",
         "extractor_class": WhisperExtractor
+    },
+    "10": {
+        "name": "Microsoft UniSpeech-SAT-base-100h-Libri-ft",
+        "extractor_class": UniSpeechSATExtractor
     }
 }
