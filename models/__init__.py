@@ -6,8 +6,7 @@ MODEL_REGISTRY = {
     "1": {
         "name": "LanguageBind",
         "extractor_class": LanguageBindExtractor,
-        "install_script": "bash/install_languagebind.sh"  # relative path to the bash file
+        "install_script": "sfm_extractor/bash/install_languagebind.sh"  # relative path to the bash file
     },
-    # In the future, add more models:
-    # "2": { "name": "OtherModel", "extractor_class": OtherModelExtractor, "install_script": "bash/install_other.sh" }
+    # You can add more models here in the future.
 }
