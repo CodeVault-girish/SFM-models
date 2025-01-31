@@ -1,34 +1,40 @@
 # SFM-models
 
-**SFM-models** is a Python library providing a **unified interface** for extracting audio embeddings from **multiple state-of-the-art models**. Users can easily list available models, select one to extract features from `.wav` files, and output embeddings to a CSV file. The library uses **lazy loading**, ensuring only the chosen model’s dependencies are loaded at runtime.
+**SFM-models** is a Python library that provides a **unified interface** for extracting audio features from multiple state-of-the-art models. By employing **lazy loading**, SFM-models dynamically imports only the model selected by the user, reducing unnecessary overhead. Whether you work locally or in a cloud notebook environment like Kaggle, this repository streamlines the workflow for audio embedding extraction, saving results in a convenient CSV format.
 
 ---
 
 ## Table of Contents
 
-1. [Features](#features)
-2. [Supported Models](#supported-models)
-3. [Prerequisites](#prerequisites)
-4. [Setup & Installation](#setup--installation)
-   - [Cloning with Git](#cloning-with-git)
-   - [Installing Dependencies](#installing-dependencies)
-5. [Usage](#usage)
-   - [Local Environment](#local-environment)
-   - [Kaggle Notebook](#kaggle-notebook)
-6. [Extracted Embeddings Format](#extracted-embeddings-format)
-7. [Adding or Modifying Models](#adding-or-modifying-models)
-8. [Contributing](#contributing)
-9. [License](#license)
+1. [Key Features](#key-features)  
+2. [Supported Models](#supported-models)  
+3. [Prerequisites](#prerequisites)  
+4. [Installation](#installation)  
+   - [Cloning the Repository](#cloning-the-repository)  
+   - [Installing Dependencies](#installing-dependencies)  
+5. [Usage](#usage)  
+   - [Local Environment](#local-environment)  
+   - [Kaggle Notebook](#kaggle-notebook)  
+6. [Extracted Embeddings Format](#extracted-embeddings-format)  
+7. [Extending the Library](#extending-the-library)  
+8. [Contributing](#contributing)  
+9. [License](#license)  
 10. [Contact](#contact)
 
 ---
 
-## Features
+## Key Features
 
-- **Unified Interface:** One function (`extract_from()`) to extract features from any supported model.
-- **Lazy Loading:** Only the selected model’s dependencies are loaded, making the process efficient.
-- **Multiple Models:** A wide variety of pretrained architectures (TensorFlow Hub, Hugging Face Transformers, SpeechBrain).
-- **CSV Output:** Outputs a CSV file containing filenames and embeddings.
+- **Unified Interface:**  
+  Access a broad range of audio models with a single function, `extract_from()`.
+- **Lazy Loading:**  
+  Only load the specific model you choose, keeping your environment lightweight.
+- **Multiple Architectures:**  
+  Leverage models from TensorFlow Hub, Hugging Face Transformers, and SpeechBrain.
+- **Easy CSV Output:**  
+  Save your audio embeddings (including filenames) in CSV format for easy analysis.
+- **Local & Cloud Compatibility:**  
+  Works seamlessly in local Python environments or Kaggle notebooks.
 
 ---
 
@@ -45,24 +51,24 @@
 9. **OpenAI Whisper-base** (Hugging Face Transformers)  
 10. **Microsoft UniSpeech-SAT-base-100h-Libri-ft** (Hugging Face Transformers)
 
+> *You can easily add additional models by creating new extractor classes and updating the registry.*
+
 ---
 
 ## Prerequisites
 
-- **Git** (to clone the repository).
-- **Python 3.7+** (ensure you have a compatible Python version).
-- **pip** (Python package manager) or an equivalent, such as `conda`.
+- **Git** for cloning this repository (optional if you prefer a direct download).  
+- **Python 3.7+** to ensure compatibility with the included libraries.  
+- **pip** (or `conda`) for package installation.
 
 ---
 
-## Setup & Installation
+## Installation
 
-### Cloning with Git
+### Cloning the Repository
 
-1. Install **Git** if you haven’t already (see [https://git-scm.com/downloads](https://git-scm.com/downloads) for instructions).
-2. Open a terminal or command prompt.
-3. Run the following command to clone the repository:
-
+1. Install **Git** if you have not already ([Download Git](https://git-scm.com/downloads)).
+2. Clone the repository:
    ```bash
    git clone https://github.com/YourUsername/SFM-models.git
    cd SFM-models
