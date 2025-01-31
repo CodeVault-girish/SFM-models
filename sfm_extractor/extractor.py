@@ -3,7 +3,7 @@
 import os
 import subprocess
 import sys
-from models import MODEL_REGISTRY
+from .models import MODEL_REGISTRY
 
 def sfm_lists():
     """

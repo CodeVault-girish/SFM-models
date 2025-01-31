@@ -6,4 +6,3 @@ __all__ = ['sfm_lists', 'extract_from']
 
 print("SFM Lists:")
 sfm_lists()
-#
