@@ -79,6 +79,6 @@
    model_list()
    ```
    ```
-   extract_from("3", "/kaggle/input/your-audio-folder", output_file="output_model3.csv", device="cuda")
+   extract_from("3", "path/your-audio-folder", output_file="path/output.csv", device="cuda")
    ```
 
