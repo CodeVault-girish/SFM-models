@@ -6,8 +6,6 @@ import torch
 import pandas as pd
 from tqdm import tqdm
 
-# Note: Lazy import of the languagebind package will be done when needed.
-
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,

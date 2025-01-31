@@ -17,14 +17,9 @@ def extract_from(selection, folder_path, output_file=None, device='cpu'):
     """
     Launch extraction for the selected model using provided parameters.
     
-    This function:
-      1. Runs the associated bash installation script.
-      2. Uses the provided folder path, output file, and device.
-      3. Instantiates the extractor and processes the folder.
-    
     :param selection: The key (as a string) of the selected model from MODEL_REGISTRY.
     :param folder_path: The full path to the folder containing audio files.
-    :param output_file: The output CSV file path. If None, the user will be prompted.
+    :param output_file: The output CSV file path. If None, extraction will not proceed.
     :param device: The device to use ('cpu' or 'cuda').
     """
     if selection not in MODEL_REGISTRY:
@@ -52,12 +47,10 @@ def extract_from(selection, folder_path, output_file=None, device='cpu'):
         print("Invalid folder path. Exiting.")
         return
 
-    # If output_file was not provided, prompt the user
+    # If output_file was not provided, exit (you could also prompt the user)
     if not output_file:
-        output_file = input("Enter the output CSV file path (e.g., output.csv): ").strip()
-        if not output_file:
-            print("No output file provided. Exiting.")
-            return
+        print("No output file provided. Exiting.")
+        return
 
     # Validate device
     device = device.lower()
