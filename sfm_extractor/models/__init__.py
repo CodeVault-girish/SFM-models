@@ -4,6 +4,7 @@ from .trillsson_extractor import TrillssonExtractor
 from .yamnet_extractor import YamnetExtractor
 from .mms_extractor import MMSExtractor
 from .xvector_extractor import XvectorExtractor
+from .hubert_extractor import HubertExtractor
 
 MODEL_REGISTRY = {
     "1": {
@@ -21,5 +22,9 @@ MODEL_REGISTRY = {
     "4": {
         "name": "SpeechBrain x-vector",
         "extractor_class": XvectorExtractor
+    },
+    "5": {
+        "name": "Facebook HuBERT-base-ls960",
+        "extractor_class": HubertExtractor
     }
 }
