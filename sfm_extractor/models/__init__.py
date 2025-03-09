@@ -51,5 +51,10 @@ MODEL_REGISTRY = {
         "module": "sfm_extractor.models.unispeechsat_extractor",
         "class": "UniSpeechSATExtractor"
     },
+        "11": {
+        "name": "speechbrain/spkrec-ecapa-voxceleb",
+        "module": "sfm_extractor.models.ecapa_extractor",
+        "class": "EcapaExtractor"
+    },
     # You can add more models as needed.
 }
