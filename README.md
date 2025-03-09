@@ -50,6 +50,7 @@
 8. **Facebook Wav2Vec2-base** (Hugging Face Transformers)  
 9. **OpenAI Whisper-base** (Hugging Face Transformers)  
 10. **Microsoft UniSpeech-SAT-base-100h-Libri-ft** (Hugging Face Transformers)
+11. **speechbrain/spkrec-ecapa-voxceleb** (Hugging Face Transformers)
 <!-- 
 > *You can easily add additional models by creating new extractor classes and updating the registry.* -->
 
