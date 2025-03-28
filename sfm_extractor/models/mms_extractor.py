@@ -19,6 +19,7 @@ class MMSExtractor:
                             If 1, batches are processed sequentially.
         """
         self.device = torch.device(device if device in ['cpu', 'cuda'] else 'cpu')
+        print(self.device)
         self.batch_size = batch_size
         self.num_workers = num_workers
         # Load feature extractor and model from facebook/mms-1b
