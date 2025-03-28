@@ -75,11 +75,13 @@
    cd SFM-models
    ```
 2. To use the model:
+  ## To use parallel processing use workers>1 deafult will run normally
    ```
    from sfm_extractor import model_list, extract_from
    model_list()
    ```
    ```
-   extract_from("3", "path/your-audio-folder", output_file="path/output.csv", device="cuda")
+   extract_from("7", "path/your-audio-folder", output_file="path/output.csv", device="cuda", batch_size=4, num_workers=4)
    ```
+
 
