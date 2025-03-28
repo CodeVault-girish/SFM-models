@@ -19,6 +19,7 @@ class WavLMExtractor:
                             If 1, batches are processed sequentially.
         """
         self.device = torch.device(device if device in ['cpu', 'cuda'] else 'cpu')
+        print(self.device)
         self.processor = Wav2Vec2FeatureExtractor.from_pretrained("microsoft/wavlm-base")
         self.model = WavLMModel.from_pretrained("microsoft/wavlm-base").to(self.device)
         # Use the sampling rate from the processor if available; otherwise default to 16000.

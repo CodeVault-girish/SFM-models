@@ -18,6 +18,7 @@ class YamnetExtractor:
                             If 1, batches are processed sequentially.
         """
         self.model = hub.load("https://tfhub.dev/google/yamnet/1")
+        print(self.device)
         self.batch_size = batch_size
         self.num_workers = num_workers
         self.target_sampling_rate = 16000

@@ -19,6 +19,7 @@ class UniSpeechSATExtractor:
                             If 1, batches are processed sequentially.
         """
         self.device = torch.device(device if device in ['cpu', 'cuda'] else 'cpu')
+        print(self.device)
         self.batch_size = batch_size
         self.num_workers = num_workers
         self.processor = AutoProcessor.from_pretrained("microsoft/unispeech-sat-base-100h-libri-ft")

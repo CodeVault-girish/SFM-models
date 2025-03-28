@@ -19,6 +19,7 @@ class Wav2Vec2Extractor:
                             If 1, batches are processed sequentially.
         """
         self.device = torch.device(device if device in ['cpu', 'cuda'] else 'cpu')
+        print(self.device)
         self.processor = Wav2Vec2FeatureExtractor.from_pretrained("facebook/wav2vec2-base")
         self.model = Wav2Vec2Model.from_pretrained("facebook/wav2vec2-base").to(self.device)
         # Use the sampling rate from the processor if available; otherwise default to 16000.

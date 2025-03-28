@@ -19,6 +19,7 @@ class WhisperExtractor:
                             If 1, batches are processed sequentially.
         """
         self.device = torch.device(device if device in ['cpu', 'cuda'] else 'cpu')
+        print(self.device)
         self.model = WhisperModel.from_pretrained("openai/whisper-base").to(self.device)
         self.feature_extractor = AutoFeatureExtractor.from_pretrained("openai/whisper-base")
         # Whisper expects 16000 Hz

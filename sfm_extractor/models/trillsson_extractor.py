@@ -19,6 +19,7 @@ class TrillssonExtractor:
                             If 1, batches are processed sequentially.
         """
         # The device parameter is included for consistency, though TF Hub manages devices differently.
+        print(self.device)
         self.batch_size = batch_size
         self.num_workers = num_workers
         # Try to load the model from a local path if available; otherwise, use the remote URL.
