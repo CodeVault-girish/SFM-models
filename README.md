@@ -75,7 +75,8 @@
    cd SFM-models
    ```
 2. To use the model:
-  ## To use parallel processing use workers>1 deafult will run normally
+  ## To use parallel processing use workers>1 deafult will run normally.
+  ## Increase the batch size for faster processing.
    ```
    from sfm_extractor import model_list, extract_from
    model_list()
